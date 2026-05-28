@@ -1,11 +1,12 @@
 import os
 from playwright.sync_api import (Playwright)
-from modules.context.main import create_context
+from modules.create_context.main import create_context
 from modules.plane_scrapper.main import plane_scrapper
 from modules.helicopter_scrapper.main import helicopter_scrapper
 from shared.constants import URL, STATE_PATH
 
 def run(playwright: Playwright) -> None:
+
     #setup browser
     browser = playwright.chromium.launch(headless=False, args=["--disable-blink-features=AutomationControlled", "--start-maximized"])
     context = browser.new_context(viewport={"width": 1366, "height": 768}, user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36", locale="pt-BR", timezone_id="America/Manaus", permissions=["geolocation"], color_scheme="dark")
