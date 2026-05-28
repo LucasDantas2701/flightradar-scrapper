@@ -130,10 +130,3 @@ Desenvolvido para fins de automação e estudo de scraping com Python.
 
 ```
 
----
-
-Se quiser, posso também:
-- transformar isso num README mais “profissional GitHub open-source”
-- adicionar badges (Python, Playwright, status)
-- ou montar um `requirements.txt` completo + estrutura ideal do projeto
-```
