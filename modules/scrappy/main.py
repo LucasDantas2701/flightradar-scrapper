@@ -33,7 +33,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_test_id("panel-selector__settings").click()
     page.get_by_test_id("image-toggle-black_white__button").click()
     page.get_by_role("slider").first.fill("0")
-    plane = 6
+    plane = 0
     helicopter = 0
     capturados = set()
 
@@ -47,7 +47,7 @@ def run(playwright: Playwright) -> None:
                     time.sleep(1)
                     codigo = page.get_by_test_id("aircraft-panel__header__callsign").inner_text()
                     partida = page.get_by_test_id("aircraft-panel__airport-departure-iata").inner_text()
-                    chegada = page.get_by_test_id("aircraft-panel__airport-arrival-iata").inner_text().strip()
+                    chegada = page.get_by_test_id("aircraft-panel__airport-arrival-iata").inner_text()
                     if not codigo:
                         continue
                     if codigo in capturados:
@@ -70,7 +70,6 @@ def run(playwright: Playwright) -> None:
 
 
     while helicopter < 6:
-        page.goto("https://www.flightradar24.com/-23.31,-46.19/9")
         for imagem in HELICOPTER:
             try:
                 resultado = pyautogui.locateOnScreen(imagem, confidence=0.7)
@@ -89,11 +88,11 @@ def run(playwright: Playwright) -> None:
                     print(f"{partida} -> {chegada} | {codigo}")
                     pyautogui.screenshot(f"assets/img/screenshots-helicopter/{codigo}.png")
                     capturados.add(codigo)
-                    plane += 1
+                    helicopter += 1
                     print("TOTAL:", plane)
                     pyautogui.dragRel(100, 0, duration=0.5)
                     time.sleep(2)
-                    if plane >= 2:
+                    if helicopter >= 2:
                         break
                 else:
                     print("NÃO ENCONTROU")
