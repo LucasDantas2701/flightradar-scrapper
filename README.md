@@ -1,6 +1,3 @@
-Aqui está um `README.md` pronto, direto e bem estruturado para o seu projeto:
-
-````markdown
 # ✈️ FlightRadar Scraper Automation
 
 Automação web desenvolvida em Python que acessa o site do FlightRadar, identifica aeronaves na tela usando `PyAutoGUI`, coleta informações de voo via `Playwright` e salva capturas de tela automaticamente.
