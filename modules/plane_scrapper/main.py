@@ -2,10 +2,11 @@ import pyautogui
 from shared.constants import PLANE
 import time
 
-plane = 0
-capturados = set()
+
 
 def plane_scrapper(page):
+    plane = 0
+    capturados = set()
     while plane < 6:
             for imagem in PLANE:
                 try:
@@ -23,6 +24,7 @@ def plane_scrapper(page):
                             print("Já capturado:", codigo)
                             continue
                         print(f"{partida} -> {chegada} | {codigo}")
+                        time.sleep(2)
                         pyautogui.screenshot(f"assets/img/screenshots-plane/{codigo}.png")
                         capturados.add(codigo)
                         plane += 1
